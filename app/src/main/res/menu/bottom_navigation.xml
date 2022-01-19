@@ -17,9 +17,9 @@
         android:title="Dodaj trening"/>
 
     <item
-        android:id="@+id/nav_add_exercise"
+        android:id="@+id/nav_exercises"
         android:icon="@drawable/ic_baseline_fitness_center_24"
-        android:title="Dodaj ćwiczenie"/>
+        android:title="Ćwiczenia"/>
 
     <item
         android:id="@+id/nav_profile"

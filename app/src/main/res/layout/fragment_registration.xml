@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <EditText
+        android:id="@+id/edtTxtSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtName"
+        android:layout_alignStart="@+id/edtTxtName"
+        android:layout_alignEnd="@+id/edtTxtName"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="-1dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtTxtName"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtName" />
+
+    <EditText
+        android:id="@+id/edtTxtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtSurname"
+        android:layout_alignStart="@+id/edtTxtSurname"
+        android:layout_alignEnd="@+id/edtTxtSurname"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="1dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/edtTxtSurname"
+        app:layout_constraintStart_toStartOf="@+id/edtTxtSurname"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtSurname" />
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtEmail"
+        android:layout_alignStart="@+id/edtTxtEmail"
+        android:layout_alignEnd="@+id/edtTxtEmail"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="61dp"
+        android:onClick="onClickRegisterBtn"
+        android:text="REGISTER"
+        app:layout_constraintEnd_toEndOf="@+id/edtTxtEmail"
+        app:layout_constraintStart_toStartOf="@+id/edtTxtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtEmail" />
+
+    <EditText
+        android:id="@+id/edtTxtName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="97dp"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</RelativeLayout>
