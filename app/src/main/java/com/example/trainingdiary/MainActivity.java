@@ -1,10 +1,11 @@
 package com.example.trainingdiary;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -12,15 +13,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class MainActivity extends AppCompatActivity {
-    DBHelper db;
+    EditText edtTxtName, edtTxtSurname, edtTxtEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = new DBHelper(this);
+        Toast.makeText(MainActivity.this, "Firebase connection Succes", Toast.LENGTH_LONG).show();
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -29,16 +32,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickRegisterBtn(View view) {
-        EditText edtTxtName = findViewById(R.id.edtTxtName);
-        EditText edtTxtSurname = findViewById(R.id.edtTxtSurname);
-        EditText edtTxtEmail = findViewById(R.id.edtTxtEmail);
-
-        Boolean checkinsertdata = db.insertuserdata(edtTxtName.getText().toString(), edtTxtSurname.getText().toString(), edtTxtEmail.getText().toString());
-
-        if(checkinsertdata == true){
-            Toast.makeText(MainActivity.this, "New Entry Inserted", Toast.LENGTH_SHORT).show();
-        }else
-            Toast.makeText(MainActivity.this, "New Entry Not Inserted", Toast.LENGTH_SHORT).show();
+        edtTxtName = findViewById(R.id.edtTxtName);
+        edtTxtSurname = findViewById(R.id.edtTxtSurname);
+        edtTxtEmail = findViewById(R.id.edtTxtEmail);
 
 //        TextView txtName = findViewById(R.id.txtName);
 //        TextView txtSurname = findViewById(R.id.txtSurname);
@@ -47,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 //        txtName.setText(edtTxtName.getText().toString());
 //        txtSurname.setText(edtTxtSurname.getText().toString());
 //        txtEmail.setText(edtTxtEmail.getText().toString());
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
