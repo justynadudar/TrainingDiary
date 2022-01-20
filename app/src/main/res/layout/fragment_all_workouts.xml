@@ -28,6 +28,7 @@
             android:background="@drawable/line"
             android:gravity="center"
             android:text="TWOJE PLANY TRENINGOWE"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -35,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/textView"
-            android:background="@drawable/line" />
+            android:background="@drawable/line"
+            />
 
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="color_stronger">#99AFF2</color>
+    <color name="color_iris">#5D5FEF</color>
     <color name="color_light">#C4D4F2</color>
     <color name="grey_light">#F2F2F2</color>
     <color name="grey_stronger">#A6A6A6</color>

@@ -13,6 +13,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.trainingdiary.fragments.menu.AddWorkoutFragment;
+import com.example.trainingdiary.fragments.menu.AllExercisesFragment;
+import com.example.trainingdiary.fragments.menu.AllWorkoutsFragment;
+import com.example.trainingdiary.fragments.menu.HistoryFragment;
+import com.example.trainingdiary.fragments.menu.ProfileFragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RegistrationFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AddWorkoutFragment()).commit();
     }
 
     public void onClickRegisterBtn(View view) {
