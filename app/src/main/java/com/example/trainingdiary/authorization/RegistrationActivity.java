@@ -63,13 +63,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         String email = edtTxtEmail.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
         String confirmPassword = edtConfirmPassword.getText().toString().trim();
-//        user.setName(edtTxtName.getText().toString().trim());
-//        user.setSurname(edtTxtSurname.getText().toString().trim());
-//        user.setEmail(edtTxtEmail.getText().toString().trim());
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
 
-        myRef.setValue("Hello, World!");
         if(name.isEmpty()){
             edtTxtName.setError("Pole imie nie może być puste!");
             edtTxtName.requestFocus();
