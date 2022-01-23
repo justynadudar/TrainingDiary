@@ -4,6 +4,9 @@ public class Exercise {
     String name;
     String musclePart;
 
+    public Exercise() {
+    }
+
     public Exercise(String name, String musclePart) {
         this.name = name;
         this.musclePart = musclePart;

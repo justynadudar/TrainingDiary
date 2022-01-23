@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Training Diary</string>
     <string name="no_training">Brak stworzonych planów treningowych</string>
+    <string name="no_exercises">Brak stworzonych ćwiczeń</string>
     <string name="add_training_title">STWÓRZ TRENING</string>
     <string name="add_exercise_title">DODAJ ĆWICZENIE DO TRENINGU</string>
+    <string name="your_exercises_title">TWOJE ĆWICZENIA</string>
     <string name="add_training_button">Dodaj ćwiczenie</string>
     <string name="name_exercise">Nazwa</string>
     <string name="name_exercise_placeholder">Podaj nazwę ćwiczenia</string>

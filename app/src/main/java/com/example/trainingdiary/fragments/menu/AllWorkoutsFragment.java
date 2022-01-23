@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trainingdiary.R;
-import com.example.trainingdiary.WorkoutAdapter;
+import com.example.trainingdiary.adapters.WorkoutAdapter;
 
 public class AllWorkoutsFragment extends Fragment {
 
