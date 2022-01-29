@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">Training Diary</string>
+    <string name="trainings">Treningi</string>
+    <string name="improve_technique">Popraw technikę</string>
+    <string name="exercises">Ćwiczenia</string>
     <string name="no_training">Brak stworzonych planów treningowych</string>
-    <string name="no_exercises">Brak stworzonych ćwiczeń</string>
+    <string name="no_exercises">Brak ćwiczeń</string>
     <string name="add_training_title">STWÓRZ TRENING</string>
     <string name="add_exercise_title">DODAJ ĆWICZENIE DO TRENINGU</string>
-    <string name="your_exercises_title">ĆWICZENIA</string>
+    <string name="select_exercise_title">WYBIERZ ĆWICZENIE</string>
+    <string name="your_exercises_title">TWOJE ĆWICZENIA</string>
     <string name="your_trainings_title">TWOJE PLANY TRENINGOWE</string>
+    <string name="improve_technique_title">POPRAW SWOJĄ TECHNIKĘ</string>
     <string name="add_your_exercise_button">Dodaj własne ćwiczenie</string>
     <string name="add_api_exercise_button">Dodaj ćwiczenie z API</string>
     <string name="name_exercise">Nazwa</string>
@@ -13,6 +18,16 @@
     <string name="main_muscle_part">Główna partia mięśniowa</string>
     <string name="exercise_description">Opis</string>
     <string name="add_exercise_button">Dodaj</string>
+    <string name="icon_youtube">Youtube</string>
+    <string name="technique_1_title">Fundamenty #1: Wyciskanie Sztangi Na Ławce Płaskiej</string>
+    <string name="technique_1_description">
+        Ćwiczenie wykonuje się w leżeniu na plecach na płaskiej ławce, stopy oparte są na podłożu, sztangę trzymamy nad sobą, nachwytem, nieco szerzej od szerokości barków.</string>
+    <string name="technique_2_title">Fundamenty #2: Przysiad Ze Sztangą</string>
+    <string name="technique_2_description">
+        Przysiady – popularne ćwiczenie wykorzystujące masę własnego ciała, angażujące mięśnie pośladkowe oraz mięśnie ud i łydek. Podczas zginania kolan angażowane są głównie mięśnie tylne ud, zwane kulszowo-goleniowymi.</string>
+    <string name="technique_3_title">Fundamenty #3: Martwy ciąg (klasyczny)</string>
+    <string name="technique_3_description">
+        Martwy ciąg (ang. deadlift) – dyscyplina sportowa oraz ćwiczenie polegające na podnoszeniu z podłoża ciężaru.</string>
     <string-array name="parts">
         <item>Barki</item>
         <item>Biceps</item>

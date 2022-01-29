@@ -9,17 +9,8 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.trainingdiary.Exercise;
 import com.example.trainingdiary.R;
-import com.example.trainingdiary.adapters.ExerciseAdapter;
-import com.example.trainingdiary.adapters.WorkoutAdapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.DatabaseReference;
-
-import java.util.ArrayList;
 
 public class AllWorkoutsFragment extends Fragment {
     Button btnAddExercise, btnAddAPIExercise;
@@ -33,21 +24,21 @@ public class AllWorkoutsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        btnAddExercise = (Button) getView().findViewById(R.id.btnAddExercise);
-        btnAddExercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle result = new Bundle();
-                result.putString("bundleKey", "result");
-                getParentFragmentManager().setFragmentResult("requestKey", result);
-            }});
-        btnAddAPIExercise = (Button) getView().findViewById(R.id.btnAddAPIExercise);
-        btnAddAPIExercise.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle result = new Bundle();
-                result.putString("bundleKey", "addAPIExerciseButtonClicked");
-                getParentFragmentManager().setFragmentResult("requestKey", result);
-            }});
+//        btnAddExercise = (Button) getView().findViewById(R.id.btn_add_user_exercise);
+//        btnAddExercise.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Bundle result = new Bundle();
+//                result.putString("bundleKey", "result");
+//                getParentFragmentManager().setFragmentResult("requestKey", result);
+//            }});
+//        btnAddAPIExercise = (Button) getView().findViewById(R.id.btn_add_api_exercise);
+//        btnAddAPIExercise.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Bundle result = new Bundle();
+//                result.putString("bundleKey", "addAPIExerciseButtonClicked");
+//                getParentFragmentManager().setFragmentResult("requestKey", result);
+//            }});
     }
 }

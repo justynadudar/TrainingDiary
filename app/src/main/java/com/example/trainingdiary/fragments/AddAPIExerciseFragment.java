@@ -1,16 +1,19 @@
 package com.example.trainingdiary.fragments;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import com.example.trainingdiary.Exercise;
 import com.example.trainingdiary.ExercisesDataService;
 import com.example.trainingdiary.R;
 import com.example.trainingdiary.databinding.FragmentAddApiExerciseBinding;
@@ -32,14 +36,21 @@ public class AddAPIExerciseFragment extends Fragment{
     FragmentAddApiExerciseBinding binding;
     ExercisesDataService exercisesDataService;
     ArrayList<String> exercisesList = new ArrayList<>();
+    TextView txtName, txtMusclePart, txtDescription;
     Button confirm;
     ListView listView;
     ArrayAdapter<String> arrayAdapter;
+    JSONArray apiData;
+    SearchView searchView;
+    private static final String EXERCISE_KEY = "exercise_key";
+    private Exercise exercise = new Exercise();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        getActivity().setTitle(getString(R.string.select_exercise_title
+        ));
     }
 
     @Nullable
@@ -58,8 +69,8 @@ public class AddAPIExerciseFragment extends Fragment{
 
             @Override
             public void onResponse(JSONArray[] response) {
-                Toast.makeText(AddAPIExerciseFragment.this.getContext(), "on response", Toast.LENGTH_SHORT).show();
                 String exerciseName = "";
+                apiData = response[0];
                 for (int i = 0; i < response[0].length() - 1 ; i++) {
                     try {
                         exerciseName = response[0].getJSONObject(i).getString("title");
@@ -68,8 +79,9 @@ public class AddAPIExerciseFragment extends Fragment{
                     }
                     exercisesList.add(exerciseName);
                 }
-                arrayAdapter = new ArrayAdapter<String>(requireContext(), android.R.layout.simple_list_item_1, exercisesList);
+                arrayAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, exercisesList);
                 listView.setAdapter(arrayAdapter);
+                binding.getRoot();
             }
         });
         return  binding.getRoot();
@@ -78,16 +90,22 @@ public class AddAPIExerciseFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        txtName = binding.txtApiTitle;
+        txtMusclePart = binding.txtApiMusclePart;
+        txtDescription = binding.txtApiDescription;
 
-        setHasOptionsMenu(true);
-        confirm = (Button)  getView().findViewById(R.id.confirmExerciseButton);
+
+
+        confirm = binding.btnConfirmApiExercise;
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle result = new Bundle();
-                result.putString("bundleKey", "addExerciseButtonClicked");
+                result.putString("bundleKey", "addAPIExerciseToWorkoutButtonClicked");
+                result.putSerializable(EXERCISE_KEY, exercise);
                 getParentFragmentManager().setFragmentResult("requestKey", result);
             }});
+
     }
 
     @Override
@@ -106,7 +124,23 @@ public class AddAPIExerciseFragment extends Fragment{
         int id = item.getItemId();
         switch (id) {
             case R.id.action_search:
-                SearchView searchView = (SearchView) item.getActionView();
+                searchView = (SearchView) item.getActionView();
+
+                searchView.setQueryHint("wyszukaj cwiczenie");
+              item.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+                  @Override
+                  public boolean onMenuItemActionExpand(MenuItem item) {
+                      listView.setVisibility(View.VISIBLE);
+                      return true;
+                  }
+
+                  @Override
+                  public boolean onMenuItemActionCollapse(MenuItem item) {
+                      System.out.println("CLOSE");
+                      listView.setVisibility(View.GONE);
+                      return true;
+                  }
+              });
 
                 searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                     @Override
@@ -116,9 +150,27 @@ public class AddAPIExerciseFragment extends Fragment{
 
                     @Override
                     public boolean onQueryTextChange(String newText) {
-                        System.out.println(exercisesList);
-                        arrayAdapter.getFilter().filter(newText);
+                            arrayAdapter.getFilter().filter(newText);
                         return false;
+                    }
+
+                });
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        try {
+                            exercise.setName(apiData.getJSONObject(position).getString("title"));
+                            txtName.setText(apiData.getJSONObject(position).getString("title"));
+                            exercise.setMusclePart(apiData.getJSONObject(position).getString("category"));
+                            txtMusclePart.setText(apiData.getJSONObject(position).getString("category"));
+                            txtDescription.setText(apiData.getJSONObject(position).getString("description"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        getActivity().setTitle(getString(R.string.add_exercise_title
+                        ));
+                        item.collapseActionView();
                     }
                 });
 

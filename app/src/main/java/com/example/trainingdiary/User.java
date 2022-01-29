@@ -1,12 +1,18 @@
 package com.example.trainingdiary;
 
+import java.util.ArrayList;
+
 public class User {
+    private String id;
     private String name;
     private String surname;
     private String email;
-    private String password;
+    private ArrayList<Exercise> Exercises;
 
-    public User(String name, String surname, String email) {
+    public User() {
+    }
+
+    public User(String id, String name, String surname, String email) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -36,11 +42,27 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public ArrayList<Exercise> getUserExercises() {
+        return Exercises;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserExercises(ArrayList<Exercise> userExercises) {
+        this.Exercises = userExercises;
+    }
+
+    public void addUserExercises(Exercise exercise) {
+        this.Exercises.add(exercise);
+    }
+
+    public void removeUserExercises(Exercise exercise) {
+        this.Exercises.remove(exercise);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

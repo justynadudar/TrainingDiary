@@ -16,6 +16,7 @@ import com.example.trainingdiary.MainActivity;
 import com.example.trainingdiary.R;
 import com.example.trainingdiary.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -94,11 +95,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         progressBar.setVisibility(View.VISIBLE);
 
+        //TODO przetestować
+        mAuth.signInWithEmailAndPassword(email, password).addOnFailureListener(
+                new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(LoginActivity.this, "Logowanie nie powiodło sie", Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    LoginActivity.this.finish();
                 }else{
                     Toast.makeText(LoginActivity.this, "Logowanie nie powiodło sie", Toast.LENGTH_LONG).show();
                 }
@@ -109,5 +122,3 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 }
 
-
-//TODO przypominanie hasła

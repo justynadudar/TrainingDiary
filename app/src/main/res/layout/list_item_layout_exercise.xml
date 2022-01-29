@@ -20,7 +20,7 @@
         <TextView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
 
-            android:id="@+id/txtDeleteItem"
+            android:id="@+id/txt_delete_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -38,7 +38,8 @@
             android:layout_gravity="center"
 
             android:layout_marginRight="10dp"
-            android:src="@drawable/ic_baseline_delete_24" />
+            android:src="@drawable/ic_baseline_delete_24"
+            android:contentDescription="TODO" />
     </LinearLayout>
 
     <LinearLayout
@@ -53,7 +54,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/txtExerciseItem"
+            android:id="@+id/txt_exercie_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -63,14 +64,13 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/txtExerciseItemPart"
+            android:id="@+id/txt_exercise_item_part"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_weight="1"
             android:gravity="center"
             android:paddingBottom="5dp"
-            android:text="TextView"
             android:textColor="@color/grey_stronger" />
     </LinearLayout>
 </FrameLayout>

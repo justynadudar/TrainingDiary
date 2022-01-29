@@ -5,10 +5,10 @@
     android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
->
+    >
 
     <Button
-        android:id="@+id/btn_confirm_api_exercise"
+        android:id="@+id/btn_confirm_user_exercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -16,24 +16,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_api_description" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_user_description" />
 
-<!--    <androidx.appcompat.widget.SearchView-->
-<!--        android:id="@+id/searchViewMenu"-->
-<!--        android:layout_width="365dp"-->
-<!--        android:layout_height="57dp"-->
-<!--        android:layout_alignParentBottom="true"-->
+    <!--    <androidx.appcompat.widget.SearchView-->
+    <!--        android:id="@+id/searchViewMenu"-->
+    <!--        android:layout_width="365dp"-->
+    <!--        android:layout_height="57dp"-->
+    <!--        android:layout_alignParentBottom="true"-->
 
-<!--        android:layout_marginTop="4dp"-->
-<!--        android:background="@drawable/line"-->
-<!--        app:itemTextColor="#5D5FEF"-->
-<!--        app:labelVisibilityMode="selected"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/textView"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/textView"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView"-->
-<!--        app:menu="@menu/search_menu">-->
+    <!--        android:layout_marginTop="4dp"-->
+    <!--        android:background="@drawable/line"-->
+    <!--        app:itemTextColor="#5D5FEF"-->
+    <!--        app:labelVisibilityMode="selected"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/textView"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/textView"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView"-->
+    <!--        app:menu="@menu/search_menu">-->
 
-<!--    </androidx.appcompat.widget.SearchView>-->
+    <!--    </androidx.appcompat.widget.SearchView>-->
 
     <TextView
         android:id="@+id/textView7"
@@ -47,11 +47,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_api_title"
+        android:id="@+id/txt_user_title"
         android:layout_width="347dp"
         android:layout_height="26dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
         app:layout_constraintHorizontal_bias="0.0"
@@ -59,11 +58,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/txt_api_description"
+        android:id="@+id/txt_user_description"
         android:layout_width="345dp"
         android:layout_height="203dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintHorizontal_bias="0.0"
@@ -77,10 +75,10 @@
         android:layout_marginTop="20dp"
         android:text="@string/exercise_description"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/txt_api_muscle_part"
+        app:layout_constraintEnd_toEndOf="@+id/txt_user_muscle_part"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txt_api_muscle_part"
-        app:layout_constraintTop_toBottomOf="@+id/txt_api_muscle_part" />
+        app:layout_constraintStart_toStartOf="@+id/txt_user_muscle_part"
+        app:layout_constraintTop_toBottomOf="@+id/txt_user_muscle_part" />
 
     <TextView
         android:id="@+id/textView11"
@@ -89,17 +87,16 @@
         android:layout_marginTop="20dp"
         android:text="@string/main_muscle_part"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/txt_api_title"
+        app:layout_constraintEnd_toEndOf="@+id/txt_user_title"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txt_api_title"
-        app:layout_constraintTop_toBottomOf="@+id/txt_api_title" />
+        app:layout_constraintStart_toStartOf="@+id/txt_user_title"
+        app:layout_constraintTop_toBottomOf="@+id/txt_user_title" />
 
     <TextView
-        android:id="@+id/txt_api_muscle_part"
+        android:id="@+id/txt_user_muscle_part"
         android:layout_width="347dp"
         android:layout_height="33dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/textView11"
         app:layout_constraintHorizontal_bias="0.0"
