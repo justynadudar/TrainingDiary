@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.trainingdiary.Exercise;
+import com.example.trainingdiary.objects.classes.Exercise;
 import com.example.trainingdiary.R;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         view = inflater.inflate(R.layout.list_item_layout_exercise, parent, false);
 
         if(flag){
-           TextView title =  (TextView) view.findViewById(R.id.txt_exercie_item);
+           TextView title =  (TextView) view.findViewById(R.id.txt_exercise_item);
            title.setText(R.string.no_exercises);
         }
 
@@ -79,7 +79,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
 
         public ExerciseViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtView = (TextView) itemView.findViewById(R.id.txt_exercie_item);
+            txtView = (TextView) itemView.findViewById(R.id.txt_exercise_item);
             txtViewMusclePart = (TextView) itemView.findViewById(R.id.txt_exercise_item_part);
             viewBackground = (LinearLayout) itemView.findViewById(R.id.view_background);
             viewForeground = (LinearLayout) itemView.findViewById(R.id.view_foreground);

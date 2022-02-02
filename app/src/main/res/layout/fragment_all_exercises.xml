@@ -7,7 +7,7 @@
     >
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_workouts"
+        android:id="@+id/list_exercises"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,7 +18,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add_new_workout"
+        android:id="@+id/btn_add_new_exercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -26,11 +26,11 @@
         android:scaleX="1.4"
         android:scaleY="1.4"
         app:backgroundTint="@color/grey_light"
-        app:layout_constraintBottom_toBottomOf="@+id/list_workouts"
+        app:layout_constraintBottom_toBottomOf="@+id/list_exercises"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.904"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/list_workouts"
+        app:layout_constraintTop_toTopOf="@+id/list_exercises"
         app:layout_constraintVertical_bias="0.946"
         app:maxImageSize="67dp"
         app:srcCompat="@drawable/ic_baseline_add_circle_outline_24"

@@ -1,14 +1,9 @@
 package com.example.trainingdiary.fragments;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,8 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trainingdiary.R;
-import com.example.trainingdiary.Technique;
-import com.example.trainingdiary.adapters.ExerciseAdapter;
+import com.example.trainingdiary.objects.classes.Technique;
 import com.example.trainingdiary.adapters.TechniqueAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -29,7 +23,6 @@ public class ImproveTechniqueFragment extends Fragment {
     RecyclerView techniquesList;
     TechniqueAdapter techniqueAdapter;
     ArrayList<Technique> techniques = new ArrayList<Technique>();
-    private FirebaseAuth mAuth;
 
     @Nullable
     @Override
@@ -43,7 +36,6 @@ public class ImproveTechniqueFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         techniquesList = (RecyclerView) getView().findViewById(R.id.techniques_list);
         techniquesList.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        //System.out.println(FirebaseAuth.getInstance().getCurrentUser().getUid());
         techniques.add(new Technique(getString(R.string.technique_1_title),getString(R.string.technique_1_description), "https://www.youtube.com/watch?v=bbGuHx07EDc"));
         techniques.add(new Technique(getString(R.string.technique_2_title),getString(R.string.technique_2_description), "https://www.youtube.com/watch?v=NEduXlZ8zSk"));
         techniques.add(new Technique(getString(R.string.technique_3_title),getString(R.string.technique_3_description), "https://www.youtube.com/watch?v=9GYH8PJ6xA0&list=PLHgc7ECD-8nLQhky4NisgGULXgRd53elM&index=3"));

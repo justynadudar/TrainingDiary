@@ -15,7 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.trainingdiary.Exercise;
+import com.example.trainingdiary.objects.classes.Exercise;
 import com.example.trainingdiary.RecyclerItemHelperListener;
 import com.example.trainingdiary.RecyclerItemTouchHelper;
 import com.example.trainingdiary.adapters.ExerciseAdapter;
@@ -48,12 +48,11 @@ public class AllExercisesFragment extends Fragment implements RecyclerItemHelper
         return inflater.inflate(R.layout.fragment_all_exercises, container, false);
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        addExerciseButton = (FloatingActionButton) getView().findViewById(R.id.btn_add_new_workout);
+        addExerciseButton = (FloatingActionButton) getView().findViewById(R.id.btn_add_new_exercise);
         addExerciseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,22 +62,18 @@ public class AllExercisesFragment extends Fragment implements RecyclerItemHelper
             }
         });
 
-
-        exercisesList = (RecyclerView) getView().findViewById(R.id.list_workouts);
+        exercisesList = (RecyclerView) getView().findViewById(R.id.list_exercises);
         exercisesList.setLayoutManager(new LinearLayoutManager(this.getContext()));
         exercisesList.setItemAnimator(new DefaultItemAnimator());
         exercisesList.addItemDecoration(new DividerItemDecoration(this.getContext(), DividerItemDecoration.VERTICAL));
 
         reff = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Exercises");
 
-
         exerciseAdapter = new ExerciseAdapter(exercises);
         exercisesList.setAdapter(exerciseAdapter);
 
         ItemTouchHelper.SimpleCallback itemTouchHelperCallBack = new RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
         new ItemTouchHelper(itemTouchHelperCallBack).attachToRecyclerView(exercisesList);
-
-
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -106,10 +101,8 @@ public class AllExercisesFragment extends Fragment implements RecyclerItemHelper
 
             String title = exercises.get(viewHolder.getAdapterPosition()).getName();
 
-
             Exercise deletedExercise = exercises.get(viewHolder.getAdapterPosition());
             int deleteIndex = viewHolder.getAdapterPosition();
-
             exerciseAdapter.removeItem(deleteIndex);
 
             rootLayout = getView();
@@ -133,17 +126,10 @@ public class AllExercisesFragment extends Fragment implements RecyclerItemHelper
                                       @Override
                                       public void onDismissed(Snackbar transientBottomBar, int event) {
                                           if(!clickedUndo[0]){
-
                                               reff.child(deletedExercise.getId()).removeValue();
-
                                           }
                                           super.onDismissed(transientBottomBar, event);
                                       }
                                   }
-
-            );
-
-        }
-
-    }
+            ); } }
 }

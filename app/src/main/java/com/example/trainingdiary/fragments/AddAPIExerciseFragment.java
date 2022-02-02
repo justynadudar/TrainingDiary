@@ -1,7 +1,6 @@
 package com.example.trainingdiary.fragments;
 
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
-import com.example.trainingdiary.Exercise;
+import com.example.trainingdiary.objects.classes.Exercise;
 import com.example.trainingdiary.ExercisesDataService;
 import com.example.trainingdiary.R;
 import com.example.trainingdiary.databinding.FragmentAddApiExerciseBinding;
@@ -53,6 +51,12 @@ public class AddAPIExerciseFragment extends Fragment{
         ));
     }
 
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -79,8 +83,9 @@ public class AddAPIExerciseFragment extends Fragment{
                     }
                     exercisesList.add(exerciseName);
                 }
-                arrayAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, exercisesList);
+                arrayAdapter = new ArrayAdapter<>(AddAPIExerciseFragment.this.getContext(), android.R.layout.simple_list_item_1, exercisesList);
                 listView.setAdapter(arrayAdapter);
+
                 binding.getRoot();
             }
         });
@@ -93,8 +98,6 @@ public class AddAPIExerciseFragment extends Fragment{
         txtName = binding.txtApiTitle;
         txtMusclePart = binding.txtApiMusclePart;
         txtDescription = binding.txtApiDescription;
-
-
 
         confirm = binding.btnConfirmApiExercise;
         confirm.setOnClickListener(new View.OnClickListener() {
@@ -136,7 +139,6 @@ public class AddAPIExerciseFragment extends Fragment{
 
                   @Override
                   public boolean onMenuItemActionCollapse(MenuItem item) {
-                      System.out.println("CLOSE");
                       listView.setVisibility(View.GONE);
                       return true;
                   }
@@ -150,6 +152,7 @@ public class AddAPIExerciseFragment extends Fragment{
 
                     @Override
                     public boolean onQueryTextChange(String newText) {
+                        if(arrayAdapter != null)
                             arrayAdapter.getFilter().filter(newText);
                         return false;
                     }
@@ -160,11 +163,15 @@ public class AddAPIExerciseFragment extends Fragment{
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         try {
-                            exercise.setName(apiData.getJSONObject(position).getString("title"));
-                            txtName.setText(apiData.getJSONObject(position).getString("title"));
-                            exercise.setMusclePart(apiData.getJSONObject(position).getString("category"));
-                            txtMusclePart.setText(apiData.getJSONObject(position).getString("category"));
-                            txtDescription.setText(apiData.getJSONObject(position).getString("description"));
+                            for( int i = 0; i< apiData.length(); i++){
+                                if(arrayAdapter.getItem(position).equals(apiData.getJSONObject(i).getString("title"))){
+                                    exercise.setName(apiData.getJSONObject(i).getString("title"));
+                                    txtName.setText(apiData.getJSONObject(i).getString("title"));
+                                    exercise.setMusclePart(apiData.getJSONObject(i).getString("category"));
+                                    txtMusclePart.setText(apiData.getJSONObject(i).getString("category"));
+                                    txtDescription.setText(apiData.getJSONObject(i).getString("description"));
+                                }
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

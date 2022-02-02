@@ -14,16 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trainingdiary.MainActivity;
 import com.example.trainingdiary.R;
-import com.example.trainingdiary.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private Button register, login;
@@ -32,6 +27,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth mAuth;
     private ProgressBar progressBar;
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("email", edtTxtEmail.getText().toString());
+        outState.putString("password", edtTxtPassword.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        edtTxtEmail.setText(savedInstanceState.getString("email"));
+        edtTxtPassword.setText(savedInstanceState.getString("password"));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +103,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         progressBar.setVisibility(View.VISIBLE);
 
-        //TODO przetestować
         mAuth.signInWithEmailAndPassword(email, password).addOnFailureListener(
                 new OnFailureListener() {
                     @Override

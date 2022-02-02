@@ -1,4 +1,4 @@
-package com.example.trainingdiary;
+package com.example.trainingdiary.objects.classes;
 
 import java.io.Serializable;
 

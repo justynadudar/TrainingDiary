@@ -1,15 +1,10 @@
-package com.example.trainingdiary;
-
-import java.util.ArrayList;
+package com.example.trainingdiary.objects.classes;
 
 public class Technique {
     private String title;
     private String description;
     private String url;
 
-    public Technique() {
-
-    }
     public Technique(String title, String description, String url) {
         this.title = title;
         this.description = description;
@@ -28,16 +23,8 @@ public class Technique {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getUrl() {
         return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
 }

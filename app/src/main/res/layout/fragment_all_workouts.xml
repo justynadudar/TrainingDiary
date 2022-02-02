@@ -12,7 +12,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -21,16 +22,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/add_training_title"
         android:focusable="true"
+        android:minWidth="32dp"
+        android:minHeight="32dp"
         android:scaleX="1.4"
         android:scaleY="1.4"
         app:backgroundTint="@color/grey_light"
-        app:layout_constraintBottom_toBottomOf="@+id/list_workouts"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/list_workouts"
-        app:layout_constraintVertical_bias="0.946"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94"
         app:maxImageSize="67dp"
         app:srcCompat="@drawable/ic_baseline_add_circle_outline_24"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />

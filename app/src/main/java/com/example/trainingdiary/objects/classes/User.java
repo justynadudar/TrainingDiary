@@ -1,4 +1,4 @@
-package com.example.trainingdiary;
+package com.example.trainingdiary.objects.classes;
 
 import java.util.ArrayList;
 
@@ -40,22 +40,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public ArrayList<Exercise> getUserExercises() {
-        return Exercises;
-    }
-
-    public void setUserExercises(ArrayList<Exercise> userExercises) {
-        this.Exercises = userExercises;
-    }
-
-    public void addUserExercises(Exercise exercise) {
-        this.Exercises.add(exercise);
-    }
-
-    public void removeUserExercises(Exercise exercise) {
-        this.Exercises.remove(exercise);
     }
 
     public String getId() {
